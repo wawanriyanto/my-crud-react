@@ -1,7 +1,14 @@
 import React from "react";
-const Button = () =>{
+import "../styles/Button.css"
+
+type ButtonProps = {
+    text:string,
+    variant:string 
+}
+
+const Button = ({text,variant}:ButtonProps) =>{
     return(
-        <button>click</button>
+        <button className={`btn btn-${variant}` }>{text}</button>
     )
 }
 export default Button

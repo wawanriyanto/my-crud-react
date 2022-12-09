@@ -1,12 +1,20 @@
 import React from "react";
 import Button from "./Button";
-const TodoItem = () => {
+
+
+
+// const TodoItem: React.FC<TodoItemsProps> = () => {
+type TodoProps = {
+    todo:any,
+}
+const TodoItem = ({todo}:TodoProps) => {
+    
     return(
         <div style={todoItem}>
-            <p>tittle item</p>
+            <p>{todo.title}</p>
             <div>
-                <Button/>
-                <Button/>
+                <Button  text="edit" variant="success"/>
+                <Button text="delete" variant="warning"/>
             </div>
         </div>
         
