@@ -18,10 +18,20 @@ class App extends React.Component {
       }
     ]
   }
-  deleteTask = (id:number)=>{
-  this.setState({
-    todos:this.state.todos.filter(item=> item.id !== id)
-  })
+  deleteTask = (id:number) => {
+    this.setState({
+      todos:this.state.todos.filter(item=> item.id !== id)
+    })
+  }
+  addTask = (data:any) => {
+    const id = this.state.todos.length
+    const newData = {
+      id:id + 1,
+      title:data
+    }
+    this.setState({
+      todos:[...this.state.todos,newData]
+    })
   }
   render(): React.ReactNode {
     const {todos} = this.state
@@ -37,7 +47,7 @@ class App extends React.Component {
             )}
         </div>
         <div className="form-input">
-          <FormInput/>
+          <FormInput add={this.addTask}/>
         </div>
       </div>
     )

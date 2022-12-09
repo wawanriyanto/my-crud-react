@@ -7,7 +7,7 @@ type ButtonProps = {
     action:any
 }
 
-const Button = ({text,variant,action}:ButtonProps) =>{ {/* action jadi parameter default */}
+const Button:React.FC<ButtonProps> = ({text,variant,action}) =>{ {/* action jadi parameter default */}
     return(
         <button className={`btn btn-${variant}` }onClick={action}>{text}</button>
     )

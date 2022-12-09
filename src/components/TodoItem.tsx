@@ -8,7 +8,7 @@ type TodoProps = {
     todo:any,
     del:Function,
 }
-const TodoItem = ({todo,del}:TodoProps) => {
+const TodoItem:React.FC<TodoProps> = ({todo,del}) => {
     const delById = (id:number) =>{
         del(id)
     }

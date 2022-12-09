@@ -2,15 +2,34 @@ import React from "react";
 import Button from "./Button";
 import "../styles/FormInput.css"
 
-class FormInput extends React.Component{
-    kosong = ()=>{
-        console.log("delete Berhasil")
+interface formInputProps{
+    add:Function
+}
+class FormInput extends React.Component<formInputProps>{
+    state = {
+        text:""
+    }
+    change = (e:any) =>{
+        this.setState({
+            text:e.target.value
+        }
+        )
+    }
+    submit = (e:any)=>{
+       e.preventDefault()
+       if(this.state.text !==""){
+        this.props.add(this.state.text)
+       }
+       this.setState(
+        {text:""}
+       )
+      
     }
     render(): React.ReactNode {
         return(
-        <form style = {inputForm}>
-        <input type = "text" style={input} placeholder="add task"></input>
-        <Button text="add" variant="success" action={this.kosong}/> {/* action harus diisi karena parameter default */}
+        <form style = {inputForm} onSubmit={this.submit}>
+        <input type = "text" style={input} placeholder="add task" onChange={this.change} value={this.state.text}></input>
+        <Button text="add" variant="success" action={this.submit}/> {/* action harus diisi karena parameter default */}
         </form>
         )
     }
