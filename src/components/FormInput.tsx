@@ -3,11 +3,14 @@ import Button from "./Button";
 import "../styles/FormInput.css"
 
 class FormInput extends React.Component{
+    kosong = ()=>{
+        console.log("delete Berhasil")
+    }
     render(): React.ReactNode {
         return(
         <form style = {inputForm}>
         <input type = "text" style={input} placeholder="add task"></input>
-        <Button text="add" variant="success"/>
+        <Button text="add" variant="success" action={this.kosong}/> {/* action harus diisi karena parameter default */}
         </form>
         )
     }

@@ -3,12 +3,13 @@ import "../styles/Button.css"
 
 type ButtonProps = {
     text:string,
-    variant:string 
+    variant:string,
+    action:any
 }
 
-const Button = ({text,variant}:ButtonProps) =>{
+const Button = ({text,variant,action}:ButtonProps) =>{ {/* action jadi parameter default */}
     return(
-        <button className={`btn btn-${variant}` }>{text}</button>
+        <button className={`btn btn-${variant}` }onClick={action}>{text}</button>
     )
 }
 export default Button

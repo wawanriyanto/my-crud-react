@@ -6,15 +6,18 @@ import Button from "./Button";
 // const TodoItem: React.FC<TodoItemsProps> = () => {
 type TodoProps = {
     todo:any,
+    del:Function,
 }
-const TodoItem = ({todo}:TodoProps) => {
-    
+const TodoItem = ({todo,del}:TodoProps) => {
+    const delById = (id:number) =>{
+        del(id)
+    }
     return(
         <div style={todoItem}>
             <p>{todo.title}</p>
             <div>
-                <Button  text="edit" variant="success"/>
-                <Button text="delete" variant="warning"/>
+                <Button  text="edit" variant="success" action={delById}/> {/* membutuhkan action */}
+                <Button text="delete" variant="warning" action={()=>delById(todo.id)}/>
             </div>
         </div>
         

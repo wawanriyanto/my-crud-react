@@ -18,6 +18,11 @@ class App extends React.Component {
       }
     ]
   }
+  deleteTask = (id:number)=>{
+  this.setState({
+    todos:this.state.todos.filter(item=> item.id !== id)
+  })
+  }
   render(): React.ReactNode {
     const {todos} = this.state
     return (
@@ -28,7 +33,7 @@ class App extends React.Component {
         </div>
         <div className="list">
           {todos.map(item =>
-          <TodoItem key={item.id} todo ={item}/>
+          <TodoItem key={item.id} todo ={item} del={this.deleteTask}/>
             )}
         </div>
         <div className="form-input">
