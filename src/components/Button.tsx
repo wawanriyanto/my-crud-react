@@ -4,7 +4,7 @@ import '../styles/Button.css';
 interface ButtonProps {
   text: string;
   variant: string;
-  action: any;
+  action?: any;
 }
 
 const Button: React.FC<ButtonProps> = ({ text, variant, action }) => {

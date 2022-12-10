@@ -14,8 +14,7 @@ const TodoItem: React.FC<TodoProps> = ({ todo, del }) => {
     <div style={todoItem}>
       <p>{todo.title}</p>
       <div>
-        <Button text="edit" variant="success" action={delById} />{' '}
-        {/* membutuhkan action */}
+        <Button text="edit" variant="success" />
         <Button
           text="delete"
           variant="warning"
